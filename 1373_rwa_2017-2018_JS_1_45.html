@@ -1,0 +1,96 @@
+<!--Napisati HTML stranicu s pripadajućim JS funkcijom koja ima jedan ulazni parametar a to je JMBG –funkcija provjerava je li broj točan i ispisuje datum rođenja,mjesto rođenja i spolukoliko je JMBG točan –ako nije točanonda ispiše pogrešku.-->
+
+<!doctype hmtl>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>5. zadatak</title>
+    </head>
+    <body>
+        
+        <button type="button" onclick="call()">Click to check JMBG!</button>
+        
+        
+        <script>
+            function check_jmbg(n)
+            {
+                var broj = n.toString();
+                var dan = parseInt(broj.substring(0,2));
+                var mjesec = parseInt(broj.substring(2,4));
+                var god = parseInt(broj.substring(4,7));
+                var region = parseInt(broj.substring(7,9));
+                var j_br = parseInt(broj.substring(9,12));
+                
+                
+                var A = Number(broj[0]);
+                var B = Number(broj[1]);
+                var V = Number(broj[2]);
+                var G = Number(broj[3]);
+                var D = Number(broj[4]);
+                var Đ = Number(broj[5]);
+                var E = Number(broj[6]);
+                var Ž = Number(broj[7]);
+                var Z = Number(broj[8]);
+                var I = Number(broj[9]);
+                var J = Number(broj[10]);
+                var K = Number(broj[11]);
+                
+                
+                if(broj.length!=13)
+                    document.write("Ne odgovara duljina JMBG, što znači da je neispravan");
+                else{
+                    var l = 11 - (( 7*(A+E) + 6*(B+Ž) + 5*(V+Z) + 4*(G+I) + 3*(D+J) + 2*(Đ+K) ) % 11);
+                    if(l==broj[12] && dan<=32 && mjesec<=12 && god>=900)
+                        {
+                            document.write("JMBG je ispravan.<br><br>");
+                            document.write("Datum rođenja je: " + dan + ".0" + mjesec + ".1" + god + ".<br>" );
+                            
+                            
+                            if(region < 10)
+                                document.write("Stranac u SFRJ <br>");
+                            else if(region < 20 && region >= 10)
+                                document.write("Bosna i Hercegovina <br>");
+                            else if(region < 30 && region >= 20)
+                                document.write("Crna Gora <br>");
+                            else if(region < 40 && region >= 30)
+                                document.write("Hrvatska <br>");
+                            else if(region < 50 && region >= 40)
+                                document.write("Makedonija <br>");
+                            else if(region < 60 && region >= 50)
+                                document.write("Slovenija <br>");
+                            else if(region < 70 && region >= 60)
+                                document.write("Nije korištena oznaka regije(iz neobjašnjenih razloga) <br>");
+                            else if(region < 80 && region >= 70)
+                                document.write("Centralna Srbija <br>");
+                            else if(region < 90 && region >= 80)
+                                document.write("AP Vojvodina <br>");
+                            else if(region < 100 && region >= 90)
+                                document.write("AP Kosovo i Metohija <br>");
+                            else
+                                document.write("...<br>");
+                            
+                            if(j_br<500)
+                                document.write("Spol: M");
+                            else
+                                document.write("Spol: Ž");
+                            
+                        }
+                    else
+                        document.write("JMBG je neispravan jer kontrolna znamenka nije ispravna.")
+                }
+                
+            }
+            
+            //check_jmbg(1608962156977);
+            
+            function call()
+            {
+                var num = prompt("Unesite vaš JMBG:");
+                check_jmbg(num);
+            }
+            
+            
+            
+        </script>
+    </body>
+</html>

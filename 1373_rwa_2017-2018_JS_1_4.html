@@ -1,0 +1,33 @@
+<!--Napisati HTML stranicu s pripadajućim JS funkcijom koja ima dva ulazna argumenta (brojčane vrijednosti),
+Funkcija zatim ispisuje aritmetičku sredinu između ta dva broja.-->
+
+<!doctype html>
+<html>
+    <head>
+        <title>4. zadatak</title>
+    </head>
+    <body>
+        
+        <script>
+            function aritm(a,b)
+            {
+                var niz = new Array(b-a+1);
+                var j = 0;
+                var suma = 0;
+                for(i=a;i<=b;i++)
+                    {
+                        niz[j]=i;
+                        suma += i;
+                        j++;
+                    }
+                
+                
+                return suma/niz.length;
+            }
+            
+            
+            var pr = aritm(100,500);
+            document.write(pr);
+        </script>
+    </body>
+</html>

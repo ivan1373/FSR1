@@ -1,0 +1,40 @@
+<!--Napisati JS/HTML program koji generira sljedeći ispis unutar preglednika putem JS
+koda. JS kod računa faktorijel za svaki broj do broja koji unesemo kao argument funkcije.
+Program mora imati sljedeću strukturu – prvo definirati funkciju za faktorijel koja radi ispis
+kao u prozoru ispod (ovoje npr poziv funkcije za 9 koji je predan kao argument funkcije).
+-->
+
+<!doctype html>
+<html>
+    <head>
+        <title>3. zadatak</title>
+    </head>
+    <body>     
+        
+        <h1><strong>Table of Factorials</strong></h1>
+        <br>
+        <br>
+        
+        <script>
+            function fakt(n)
+            {
+                for(i=1;i<=n;i++)
+                    {
+                        var rez = i;
+                        for(j=i-1;j>=1;j--)
+                        rez *= j;
+                        
+                        document.write(i + "! = " + rez);
+                        document.write("<br>");
+                    }
+                
+                
+                
+            }
+            
+            fakt(prompt("Unesite gornju granicu:"));
+            
+            
+        </script>
+    </body>
+</html>
